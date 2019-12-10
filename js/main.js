@@ -11,6 +11,10 @@ function diagonal(){
     let limit_width = (w - (w*.10));
     let limit_height = (h - (h*.20));
 
+    if(w < 400){
+        limit_width = (w - (w*.20));
+    }
+
     anime({
         targets: cucaracha,
         translateX: function (){
