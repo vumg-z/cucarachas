@@ -4,18 +4,18 @@ function main(){
 
 function diagonal(){
 
-    let cucaracha = document.getElementById("cucaracha_viva");
+    let cucaracha = document.querySelectorAll("#cucaracha_viva");
     let w = window.innerWidth;
     let h = window.innerHeight;
 
-    let limit_width = (w - (w*.10));
+    let limit_width = (w - (w*.20));
     let limit_height = (h - (h*.20));
 
     if(w < 400){
-        limit_width = (w - (w*.20));
+        limit_width = (w - (w*.25));
     }
 
-    anime({
+    animation = anime({
         targets: cucaracha,
         translateX: function (){
             return anime.random(0,limit_width)

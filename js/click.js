@@ -1,10 +1,14 @@
+
 function main(){
     let ruta = "./assets/muerto.png";
-    let cucaracha = document.getElementById("cucaracha_viva");
+    let cucaracha = document.querySelectorAll("#cucaracha_viva");
 
-    cucaracha.addEventListener("click", () => {
-        cucaracha.src = ruta;
-        cucaracha.id = "null";
+    cucaracha.forEach((cucaracha) => {
+        cucaracha.addEventListener("click", () => {
+            cucaracha.src = ruta;
+            cucaracha.id = "null";
+            animation.pause;
+        })
     })
 }
 
