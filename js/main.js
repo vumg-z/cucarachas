@@ -8,7 +8,7 @@ function diagonal(){
     let w = window.innerWidth;
     let h = window.innerHeight;
 
-    let limit_width = (w - (w*.10));
+    let limit_width = (w - (w*.35;
     let limit_height = (h - (h*.25));
 
     if(w < 400){
