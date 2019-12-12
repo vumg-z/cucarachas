@@ -1,8 +1,8 @@
 let cucaracha = document.querySelectorAll("#cucaracha_viva");
 let ruta = "./assets/muerto.png";
-let cucarachas_vivas = document.getElementsByClassName("cucaracha_viva").length;
 
-console.log(cucarachas_vivas)
+// let cucarachas_vivas = document.getElementsByClassName("cucaracha_viva").length;
+// console.log(cucarachas_vivas)
 
 const points = document.getElementById("points");
 let counter = 0;
@@ -18,15 +18,21 @@ window.onload = function () {
 function main(){
     cucaracha.forEach((cucaracha) => {
         cucaracha.addEventListener("click", () => {
+            counterHandler(cucaracha);
             cucaracha.src = ruta;
             cucaracha.id = "null";
-            cucaracha.className = "cucaracha_muerta";
             animation.pause;
-
-            counter++;
-            points.innerHTML = counter;
         });
     });
+}
+
+
+function counterHandler(cucaracha){
+
+    if(cucaracha.id != "null"){
+        counter++;
+        points.innerHTML = counter;
+    }
 }
 
 function startTimer(duration, display) {
