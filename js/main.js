@@ -11,6 +11,7 @@ function diagonal(){
     let limit_width = (w - (w*.35));
     let limit_height = (h - (h*.25));
 
+    //responsive
     if(w < 400){
         limit_width = (w - (w*.25));
     }
@@ -22,7 +23,7 @@ function diagonal(){
         },
         translateY: getRndInteger(0,limit_height),
         complete: diagonal,
-        delay : 100,
+        delay : 20,
         easing: 'easeInOutQuad'
       });
 }
