@@ -1,40 +1,45 @@
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: 'Gochi Hand', cursive;
-  }
+/*  Estilos sin flex-box */
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Gochi Hand", cursive;
+}
+
+.row {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  justify-items: center;
+  align-items: center;
+}
+
+img {
+  width: 50%;
+  margin: 0 0 0 15%;
+}
 
 h2 {
-    font-size: 7rem;
-    font-weight: 100;
-    margin-bottom: 0;
-    padding-bottom: 0;
-    line-height: 0.8;
-    padding: 0rem 16rem;
-  }
+  font-size: 5.5rem;
+  line-height: 0.8;
+}
 
 .createdBy {
-    margin: 0;
-    padding: 0;
-    font-weight: 100;
-    padding: 1rem 16rem;
-    font-size: 2rem;
+  font-size: 2rem;
+  font-weight: 100;
 }
-.row {
-    display: flex;
-    height: 100%
-  }
-  
-.column {
-    flex: 50%;
-    padding: 10px;
-    height: 100%;
-    display: flex;
-    justify-content: center; /* align horizontal */
-    align-items: center; /* align vertical */
-  }
 
-.buttonSection {
-    padding: 1rem 16rem;
+p {
+  font-size: 1.2rem;
+  animation: blink 1.2s infinite alternate;
+}
+
+@keyframes blink {
+  from {
+    color: black;
+  }
+  to {
+    color: white;
+  }
 }
