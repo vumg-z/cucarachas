@@ -1,0 +1,45 @@
+/*  Estilos sin flex-box */
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Gochi Hand", cursive;
+}
+
+.row {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  justify-items: center;
+  align-items: center;
+}
+
+img {
+  width: 50%;
+  margin: 0 0 0 15%;
+}
+
+h2 {
+  font-size: 5.5rem;
+  line-height: 0.8;
+}
+
+.createdBy {
+  font-size: 2rem;
+  font-weight: 100;
+}
+
+p {
+  font-size: 1.2rem;
+  animation: blink 1.2s infinite alternate;
+}
+
+@keyframes blink {
+  from {
+    color: black;
+  }
+  to {
+    color: white;
+  }
+}
