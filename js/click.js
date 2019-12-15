@@ -9,7 +9,8 @@ let display = document.querySelector('#time');
 
 window.onload = function () {
     createCucaracha();
-    startTimer(nextSeconds, display);
+    this.startTimer(seconds,display);
+    // startTimer(nextSeconds, display);
     main();
 };
 
@@ -47,7 +48,7 @@ function winGame() {
 }
 
 function createCucaracha(){
-    for (var i = 0; i < 1000; i++) {
+    for (var i = 0; i < 4; i++) {
         let img = document.createElement("IMG");
         img.setAttribute("src", "assets/vivo.png");
         img.setAttribute("id", "cucaracha_viva");
