@@ -18,7 +18,7 @@ section {
     width: 10%;
 }
 
-img:hover{
+.cucaracha_viva:hover{
 cursor: pointer;
 }
 
@@ -27,10 +27,15 @@ cursor: pointer;
     width: 100vw;
     text-align: center;
     font-size: 2.2rem;
-    #time{
+    #time2{
         margin: 0 2em;
     }
-    #points{
-        margin: 0 2em;
+    #time, #points{
+        margin: 0 .3em;
     }
+    .timer, .heart{
+        position: relative;
+        top: .1em;
+    }
+    
 }
