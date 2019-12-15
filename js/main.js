@@ -8,7 +8,7 @@ function diagonal(){
     let w = window.innerWidth;
     let h = window.innerHeight;
 
-    let limit_width = (w - (w*.35));
+    let limit_width = (w - (w*.15));
     let limit_height = (h - (h*.25));
 
     //responsive
@@ -21,9 +21,12 @@ function diagonal(){
         translateX: function (){
             return anime.random(0,limit_width)
         },
-        translateY: getRndInteger(0,limit_height),
+        translateY: function (){
+            return anime.random(0,limit_height)
+        },
+        // translateY: getRndInteger(0,limit_height),
         complete: diagonal,
-        delay : 20,
+        delay : 100,
         easing: 'easeInOutQuad'
       });
 }
