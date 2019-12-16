@@ -3,11 +3,21 @@ let playground = document.getElementById("playground");
 const points = document.getElementById("points");
 let counter = 0;
 
-let seconds = 4;
-let nextSeconds = localStorage.getItem("secondskey");
+let seconds = localStorage.getItem("secondskey");
+
+var n = localStorage.getItem('on_load_counter');
+
 let display = document.querySelector('#time');
 
 window.onload = function () {
+    localStorage.setItem("on_load_counter", n);
+    localStorage.setItem("secondskey", seconds);
+    if (n === null) {
+        n = 4;
+    }
+    if (seconds === null) {
+        seconds = 3;
+    }
     createCucaracha();
     this.startTimer(seconds,display);
     // startTimer(nextSeconds, display);
@@ -39,7 +49,9 @@ function counterHandler(cucaracha){
 function winGame() {
     let cucarachas_vivas = document.getElementsByClassName("cucaracha_viva");
     if(counter === cucarachas_vivas.length){
-        seconds--;
+        seconds++;
+        n++;
+        localStorage.setItem("on_load_counter", n);
         localStorage.setItem("secondskey", seconds);
         window.location.reload(true);
         alert("you win");
@@ -48,7 +60,7 @@ function winGame() {
 }
 
 function createCucaracha(){
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < n; i++) {
         let img = document.createElement("IMG");
         img.setAttribute("src", "assets/vivo.png");
         img.setAttribute("id", "cucaracha_viva");
@@ -72,6 +84,7 @@ function startTimer(duration, display) {
             timer = duration;
             alert("Game Over");
             window.location.reload(true); 
+            localStorage.clear();
         }
     }, 1000);
 }
