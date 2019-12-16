@@ -9,7 +9,8 @@ let display = document.querySelector('#time');
 
 window.onload = function () {
     createCucaracha();
-    startTimer(nextSeconds, display);
+    this.startTimer(seconds,display);
+    // startTimer(nextSeconds, display);
     main();
 };
 
