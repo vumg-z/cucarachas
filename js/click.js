@@ -1,31 +1,38 @@
 let playground = document.getElementById("playground");
+let winModal = document.getElementById("winModal");
+let loserModal = document.getElementById("loserModal");
 
+const levelDisplay = document.getElementById("level");
 const points = document.getElementById("points");
 let counter = 0;
 
-let seconds = localStorage.getItem("secondskey");
+var cucaracha;
+var animationCucaracha;
+var myTimer;
 
+let seconds = localStorage.getItem("secondskey");
 var n = localStorage.getItem('on_load_counter');
+var level = localStorage.getItem('level_counter');
 
 let display = document.querySelector('#time');
 
 window.onload = function () {
     localStorage.setItem("on_load_counter", n);
     localStorage.setItem("secondskey", seconds);
-    if (n === null) {
+    localStorage.setItem("level_counter", level);
+    if (n === null && seconds === null && level === null) {
         n = 4;
-    }
-    if (seconds === null) {
-        seconds = 3;
+        seconds = 4;
+        level = 1;
     }
     createCucaracha();
     this.startTimer(seconds,display);
-    // startTimer(nextSeconds, display);
     main();
 };
 
 function main(){
-    let cucaracha = document.querySelectorAll("#cucaracha_viva");
+    levelDisplay.innerHTML = level;
+    cucaracha = document.querySelectorAll("#cucaracha_viva");
     let ruta = "./assets/muerto.png";
     cucaracha.forEach((cucaracha) => {
         cucaracha.addEventListener("click", () => {
@@ -33,6 +40,7 @@ function main(){
             cucaracha.src = ruta;
             cucaracha.id = "null";
             animation.pause;
+            animationCucaracha = animation.pause;
             winGame();
         });
     });
@@ -43,19 +51,6 @@ function counterHandler(cucaracha){
     if(cucaracha.id != "null"){
         counter++;
         points.innerHTML = counter;
-    }
-}
-
-function winGame() {
-    let cucarachas_vivas = document.getElementsByClassName("cucaracha_viva");
-    if(counter === cucarachas_vivas.length){
-        seconds++;
-        n++;
-        localStorage.setItem("on_load_counter", n);
-        localStorage.setItem("secondskey", seconds);
-        window.location.reload(true);
-        alert("you win");
-        clearInterval(timer);
     }
 }
 
@@ -71,7 +66,7 @@ function createCucaracha(){
 
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
-    setInterval(function () {
+    myTimer = setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -82,9 +77,41 @@ function startTimer(duration, display) {
 
         if (--timer < 0) {
             timer = duration;
-            alert("Game Over");
-            window.location.reload(true); 
-            localStorage.clear();
+            clearInterval(myTimer);
+            animationCucaracha;
+            loserModal.style.display = "block";
+            tryagain();
         }
     }, 1000);
+    
+}
+
+function winGame() {
+    let cucarachas_vivas = document.getElementsByClassName("cucaracha_viva");
+    if(counter === cucarachas_vivas.length){
+        seconds++;
+        n++;
+        level++;
+        localStorage.setItem("level_counter", level);
+        localStorage.setItem("on_load_counter", n);
+        localStorage.setItem("secondskey", seconds);
+        winModal.style.display = "block";
+        clearInterval(myTimer);
+        nextlvl();
+    }
+}
+
+function nextlvl() {
+    const nextlvlbtn = document.getElementById("nextlvl");
+    nextlvlbtn.onclick = function() {
+        window.location.reload(true);
+    };
+}
+
+function tryagain() {
+    const tryagainbtn = document.getElementById("tryagain");
+    tryagainbtn.onclick = function() {
+        window.location.reload(true); 
+        localStorage.clear();
+    };
 }
