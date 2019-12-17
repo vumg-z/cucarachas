@@ -9,10 +9,34 @@
     <title>Cucarachas Game</title>
   </head>
   <body>
+
+    <!-- Win Modal -->
+    <div id="winModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <h2>Yey! You Did it!</h2>
+          <div>
+            <button id="nextlvl">Next Level ></button>
+          </div>
+        </div>
+    </div>
+
+    <!-- Loser Modal -->
+    <div id="loserModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <h2>Loooooseer!</h2>
+          <div>
+            <button id="tryagain">Try again</button>
+          </div>
+        </div>
+    </div>
+
     <section id="playground">
       <div class="score">
-        <span id="points2"><img src="./assets/favorite_border-24px.svg" alt="" class="heart"><span id="points"> 0 </span>  </span> 
-        <span id="time2"><img src="./assets/alarm-24px.svg" alt="" class="timer"><span id="time">00:00</span> </span>
+        <span id="level2">Level <span id="level">1</span>  </span>
+        <span id="points2"><img src="./assets/favorite_border-24px.svg" alt="heart icon" class="heart"><span id="points"> 0 </span>  </span> 
+        <span id="time2"><img src="./assets/alarm-24px.svg" alt="clock" class="timer"><span id="time">00:00</span> </span>
       </div>
       
     </section>
