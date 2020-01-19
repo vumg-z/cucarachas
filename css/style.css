@@ -43,3 +43,41 @@ p {
     color: white;
   }
 }
+
+/*
+
+  Vista responsive
+
+*/
+
+@media (max-width: 900px) {
+  h2 {
+    font-size: 4rem;
+    line-height: 0.8;
+  }
+}
+
+@media (max-width: 750px) {
+  h2 {
+    font-size: 2rem;
+    line-height: 0.8;
+  }
+  .createdBy {
+    font-size: 1.5rem;
+  }
+
+  img{
+    margin: 0 0 0 25%;
+  }
+}
+
+@media (max-width: 633px) {
+  .row {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  img{
+    display: none;
+  }
+
+}
