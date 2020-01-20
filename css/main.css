@@ -9,7 +9,7 @@ section {
 }
 
 #cucaracha_viva {
-  width: 10%;
+  width: 8%;
   position: fixed;
   display: none;
 }
@@ -38,12 +38,20 @@ section {
   margin: 0 2em;
 }
 
-.score #time, .score #points {
-  margin: 0 .3em;
+.score #time,
+.score #points {
+  margin: 0 0.3em;
 }
 
-.score .timer, .score .heart {
+.score .timer,
+.score .heart {
   position: relative;
-  top: .1em;
+  top: 0.1em;
+}
+
+@media (max-width: 800px) {
+  #cucaracha_viva {
+    width: 20%;
+  }
 }
 /*# sourceMappingURL=main.css.map */
