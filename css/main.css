@@ -11,11 +11,16 @@ section {
 #cucaracha_viva {
   width: 10%;
   position: fixed;
+  display: none;
 }
 
 #null {
   position: fixed;
   width: 10%;
+}
+
+#show {
+  display: inline;
 }
 
 .cucaracha_viva:hover {
