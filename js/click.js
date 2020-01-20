@@ -9,18 +9,18 @@ let display = document.querySelector('#time');
 
 window.onload = function () {
     createCucaracha();
-    this.startTimer(seconds,display);
     // startTimer(nextSeconds, display);
     main();
 };
 
 function main(){
     let cucaracha = document.querySelectorAll("#cucaracha_viva");
-    let ruta = "./assets/muerto.png";
+    let cucarachaMuerta = "./assets/muerto.png";
+    
     cucaracha.forEach((cucaracha) => {
         cucaracha.addEventListener("click", () => {
             counterHandler(cucaracha);
-            cucaracha.src = ruta;
+            cucaracha.src = cucarachaMuerta;
             cucaracha.id = "null";
             animation.pause;
             winGame();
@@ -57,21 +57,4 @@ function createCucaracha(){
     }
 }
 
-function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
 
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = minutes + ":" + seconds;
-
-        if (--timer < 0) {
-            timer = duration;
-            alert("Game Over");
-            window.location.reload(true); 
-        }
-    }, 1000);
-}
