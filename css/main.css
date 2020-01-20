@@ -53,5 +53,8 @@ section {
   #cucaracha_viva {
     width: 20%;
   }
+  .score {
+    font-size: 1.5rem;
+  }
 }
 /*# sourceMappingURL=main.css.map */
