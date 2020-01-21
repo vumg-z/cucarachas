@@ -6,17 +6,24 @@
 
 section {
   height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  position: relative;
 }
 
 #cucaracha_viva {
   width: 8%;
   position: fixed;
   display: none;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation: showing 3s;
+          animation: showing 3s;
 }
 
 #null {
   position: fixed;
-  width: 10%;
+  width: 8%;
 }
 
 #show {
@@ -49,12 +56,90 @@ section {
   top: 0.1em;
 }
 
+.alert-hide {
+  display: none;
+}
+
+.alert-show {
+  text-align: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  position: absolute;
+  width: 15%;
+  padding: 5%;
+  -webkit-box-shadow: 0 0.3em 0.3em 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 0.3em 0.3em 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.alert-show img {
+  margin-top: 1em;
+  width: 35%;
+  -webkit-animation: spin 1.3s;
+          animation: spin 1.3s;
+}
+
+.alert-show h2 {
+  font-size: 2.2rem;
+}
+
 @media (max-width: 800px) {
   #cucaracha_viva {
     width: 20%;
   }
+  #null {
+    width: 20%;
+  }
   .score {
     font-size: 1.5rem;
+  }
+  #alert-text {
+    font-size: 1.2rem;
+  }
+  .alert-img {
+    display: none;
+  }
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes showing {
+  from {
+    opacity: -1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes showing {
+  from {
+    opacity: -1;
+  }
+  to {
+    opacity: 1;
   }
 }
 /*# sourceMappingURL=main.css.map */

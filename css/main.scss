@@ -4,19 +4,28 @@
   font-family: "Gochi Hand", cursive;
 }
 
+$animation-duration: 3s;
+$animation-delay: 1s;
+$from-opacity: -1;
+$to-opacity: 1;
+ 
 section {
   height: 100vh;
+  display: grid;
+  position: relative;
 }
 
 #cucaracha_viva {
   width: 8%;
   position: fixed;
   display: none;
+  animation-delay: $animation-delay;
+  animation: showing $animation-duration;
 }
 
 #null {
   position: fixed;
-  width: 10%;
+  width: 8%;
 }
 
 #show {
@@ -46,14 +55,69 @@ section {
   }
 }
 
+// alert
+
+.alert-hide {
+  display: none;
+}
+
+.alert-show {
+  text-align: center;
+  align-self: center;
+  justify-self: center;
+  position: absolute;
+  width: 15%;
+  padding: 5%;
+  box-shadow: 0 0.3em 0.3em 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  img {
+    margin-top: 1em;
+    width: 35%;
+    animation: spin 1.3s;
+  }
+  h2 {
+    font-size: 2.2rem;
+  }
+}
+
 //responsive
 
 @media (max-width: 800px) {
-    #cucaracha_viva {
-        width: 20%;
-    }
+  #cucaracha_viva {
+    width: 20%;
+  }
 
-    .score{
-        font-size: 1.5rem;
-    }
+  #null {
+    width: 20%;
+  }
+
+  .score {
+    font-size: 1.5rem;
+  }
+
+  #alert-text {
+    font-size: 1.2rem;
+  }
+
+  .alert-img {
+    display: none;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes showing {
+  from {
+    opacity: $from-opacity;
+  }
+  to {
+    opacity: $to-opacity;
+  }
 }
