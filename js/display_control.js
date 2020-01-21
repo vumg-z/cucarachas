@@ -1,16 +1,24 @@
+import restartGame from "./restart_game.js"
+
 // controlando el tiempo en el que las cucarachas aparecen
 
 function displayControl(){
+    let seconds = 4;
+    let display = document.querySelector('#time');
+    //el temporizador de aqui abajo se encarga de mostrar las cucarachas despues de 1.450s
     setTimeout(() => {
         let cucarachas = document.querySelectorAll("#cucaracha_viva");
+        // al inicio las cucarachas tienen display: none
         Array.prototype.slice.call(cucarachas).map(item => item.style.display = "inline")
         startTimer(seconds,display);
-    }, 1450);
+    }, 1000);
 }
 
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
-    setInterval(function () {
+    var interval = setInterval(function () {
+        window.addEventListener("pause", (e) => {clearInterval(interval)})
+
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -21,8 +29,9 @@ function startTimer(duration, display) {
 
         if (--timer < 0) {
             timer = duration;
-            alert("Game Over");
-            window.location.reload(true); 
+            //aqui despachamos el evento?
+            clearInterval(interval)
+            restartGame("Game Over", false)
         }
     }, 1000);
 }
