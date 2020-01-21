@@ -98,8 +98,11 @@ section {
   #alert-text {
     font-size: 1.2rem;
   }
+  #alert {
+    width: 45%;
+  }
   .alert-img {
-    display: none;
+    width: 35%;
   }
 }
 

@@ -99,9 +99,15 @@ section {
     font-size: 1.2rem;
   }
 
-  .alert-img {
-    display: none;
+  #alert{
+    width: 45%;
   }
+
+  .alert-img {
+    width: 35%;
+  }
+
+  
 }
 
 @keyframes spin {
