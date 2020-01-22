@@ -3,6 +3,7 @@ import alert from "./alert_controler.js";
 function restartGame(message, isFinished, isWin) {
   let i = 0;
   let id = "#null";
+  
   while(i < 2){
     let cucarachas = document.querySelectorAll(id);
     // Esconder todas las cucarachas vivas o muertas
@@ -14,7 +15,7 @@ function restartGame(message, isFinished, isWin) {
   }
 
 
-  alert(message, isFinished);
+  alert(message, isFinished, isWin);
 
   setTimeout(() => {
     window.location.reload(true);
