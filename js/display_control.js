@@ -3,7 +3,18 @@ import restartGame from "./restart_game.js"
 // controlando el tiempo en el que las cucarachas aparecen
 
 function displayControl(){
+
+    //el juego en movil va a tener menos segundos 
+    var w = window.innerWidth;
+
+
     let seconds = 4;
+
+    if(w < 801){
+        seconds = 2;
+    }
+
+    
     let display = document.querySelector('#time');
     //el temporizador de aqui abajo se encarga de mostrar las cucarachas despues de 1.450s
     setTimeout(() => {
