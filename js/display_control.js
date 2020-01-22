@@ -14,7 +14,7 @@ function displayControl(){
         seconds = 2;
     }
 
-    
+
     let display = document.querySelector('#time');
     //el temporizador de aqui abajo se encarga de mostrar las cucarachas despues de 1.450s
     setTimeout(() => {
@@ -42,7 +42,7 @@ function startTimer(duration, display) {
             timer = duration;
             //aqui despachamos el evento?
             clearInterval(interval)
-            restartGame("Game Over", false)
+            restartGame("Game Over", false, false)
         }
     }, 1000);
 }
