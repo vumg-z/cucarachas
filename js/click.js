@@ -39,10 +39,11 @@ function counterHandler(cucaracha) {
 function winGame() {
   let cucarachas_vivas = document.getElementsByClassName("cucaracha_viva");
   if (counter === cucarachas_vivas.length) {
+    // lanzamos el evento para que el temporizador termine
+    window.dispatchEvent(pause)
+  
     setTimeout(() => {
       restartGame("You win!", false, true);
-      // aqui lanzamos el evento?
-      window.dispatchEvent(pause)
     }, 1000);
   }
 }
