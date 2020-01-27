@@ -1,4 +1,5 @@
 import restartGame from "./restart_game.js";
+import playCrackSound from "./audio.js"
 
 // evento global para parar el time-out desde aqui
 
@@ -20,6 +21,7 @@ function main() {
 
   cucaracha.forEach(cucaracha => {
     cucaracha.addEventListener("click", () => {
+      playCrackSound()
       counterHandler(cucaracha);
       cucaracha.src = cucarachaMuerta;
       cucaracha.id = "null";
