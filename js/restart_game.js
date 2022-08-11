@@ -15,7 +15,7 @@ function restartGame(message, isFinished, isWin) {
   }
 
 
-  alert(message, isFinished, isWin);
+  alert("message", isFinished, isWin);
 
   setTimeout(() => {
     window.location.reload(true);
