@@ -4,7 +4,7 @@ Mata cucarachas -w-
 ### Screenshot
 ![](assets/ss.png)
 ### Demo
-https://urielmendozag.github.io/cucarachas/
+https://vumg-z.github.io/cucarachas/
 ## Contributors
 
 * **Uriel Mendoza** - *Initial work* - [Uriel Mendoza](https://github.com/urielmendozag)
