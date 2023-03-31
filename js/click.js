@@ -1,5 +1,5 @@
 import restartGame from "./restart_game.js";
-import playCrackSound from "./audio.js"
+import playCrackSound from "./audio.js";
 
 // evento global para parar el time-out desde aqui
 
@@ -21,18 +21,20 @@ function main() {
 
   cucaracha.forEach(cucaracha => {
     cucaracha.addEventListener("click", () => {
-      playCrackSound()
-      counterHandler(cucaracha);
-      cucaracha.src = cucarachaMuerta;
-      cucaracha.id = "null";
-      animation.pause;
-      winGame();
+      if (cucaracha.id !== "null") {
+        playCrackSound()
+        counterHandler(cucaracha);
+        cucaracha.src = cucarachaMuerta;
+        cucaracha.id = "null";
+        cucaracha.style.pointerEvents = "none";
+        winGame();
+      }
     });
   });
 }
 
 function counterHandler(cucaracha) {
-  if (cucaracha.id != "null") {
+  if (cucaracha.id !== "null") {
     counter++;
     points.innerHTML = counter;
   }
@@ -42,8 +44,8 @@ function winGame() {
   let cucarachas_vivas = document.getElementsByClassName("cucaracha_viva");
   if (counter === cucarachas_vivas.length) {
     // lanzamos el evento para que el temporizador termine
-    window.dispatchEvent(pause)
-  
+    window.dispatchEvent(pause);
+
     setTimeout(() => {
       restartGame("You win!", false, true);
     }, 1000);
