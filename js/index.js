@@ -1,21 +1,61 @@
 // funcionalidad de click en la landing page
 
 
-window.addEventListener('click', function() {
+window.addEventListener('click', function () {
     window.location.assign("game.html");
 });
 
-window.addEventListener('touchend', function() {
+window.addEventListener('touchend', function () {
     window.location.assign("game.html");
 });
 
-function onFrame(event) {
-    // Rotate the SVG by a small angle on each frame
-    // Adjust the angle as needed for desired speed
-    svg.rotate(10, svg.bounds.center);
+var svg;
+var animationType; // Declare animationType globally
+
+
+function spinRight() {
+    svg.rotate(2, svg.bounds.center);
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+function spinLeft() {
+    svg.rotate(-2, svg.bounds.center);
+}
+
+var bounceVelocity = 2;
+var bounceAcceleration = .1; // Adjust this for faster or slower acceleration
+var bounceDamping = 1; // Adjust damping to control the 'bounciness'
+
+function bounce() {
+    // If the SVG hits the top or bottom of the canvas, reverse its velocity and apply damping
+    if (svg.position.y >= paper.view.bounds.height - svg.bounds.height / 2 || svg.position.y <= svg.bounds.height / 2) {
+        bounceVelocity = -bounceVelocity * bounceDamping;
+    }
+
+    // Apply acceleration to the velocity
+    bounceVelocity += bounceAcceleration;
+
+    // Update the position based on the velocity
+    svg.position.y += bounceVelocity;
+
+    
+}
+
+
+function onFrame(event) {
+    switch (animationType) {
+        case 'spinRight':
+            spinRight();
+            break;
+        case 'spinLeft':
+            spinLeft();
+            break;
+        case 'bounce':
+            bounce();
+            break;
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
     paper.install(window);
     paper.setup(document.getElementById('myCanvas'));
 
@@ -209,7 +249,7 @@ z"/>
 </svg>`;
 
     // Load the SVG from the string
-    project.importSVG(svgString, function(loadedSvg) {
+    project.importSVG(svgString, function (loadedSvg) {
         // Scale the SVG
 
         svg = loadedSvg
@@ -229,24 +269,30 @@ z"/>
 
         function blink() {
             var eyesOpen = true;
-        
-            return function() {
+
+            return function () {
                 [eye1, eye2].forEach(eye => {
                     if (eye) {
                         eye.visible = eyesOpen;
                     }
                 });
-        
+
                 eyesOpen = !eyesOpen;
             }
         }
-        
+
         // Create the blink function and set interval
         var startBlinking = blink();
         setInterval(startBlinking, 500); // Adjust the interval as needed
-        
+
+        // Randomize the animation type
+        var animations = ['spinRight', 'spinLeft', 'bounce'];
+        animationType = animations[Math.floor(Math.random() * animations.length)];
+
+
+        // Set up the onFrame event handler
         paper.view.onFrame = onFrame;
     });
-    
+
 });
 
