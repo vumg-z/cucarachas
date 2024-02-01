@@ -1,41 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Gochi+Hand&display=swap" rel="stylesheet">
-    <title>Mata Cucarachas</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-    <style>
-        #body {
-            cursor: pointer;
-        }
-    </style>
-</head>
-
-<body id="body">
-
-    <div class="row">
-        <div class="column">
-            <div class="title">
-                <h2>Mata</br>Cucarachas</h2>
-                <span class="createdBy">Created by Uriel Mendoza</span>
-                </br>
-                <p>(Click anywhere to start)</p>
-            </div>
-        </div>
-        <div class="column">
-            <!-- <img src="assets/splash.png" alt="splash image"> -->
-            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="100%" viewBox="0 0 736 816" enable-background="new 0 0 736 816" xml:space="preserve">
 <path fill="#000000" opacity="1.000000" stroke="none" 
 	d="
@@ -222,9 +185,3 @@ M316.229858,221.128357
 	C323.136719,209.896255 321.803650,216.874649 316.229858,221.128357 
 z"/>
 </svg>
-        </div>
-    </div>
-    <script src="./js/index.js"></script>
-</body>
-
-</html>
