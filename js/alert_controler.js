@@ -4,7 +4,18 @@ function alertControler(message, isVisible, isWin){
     let alertImg = document.getElementById("alert-img")
 
     let messages_win = ["You win", "You are awesome!", "Fantastic", "OH GOD!", "No way Jose!!!", "Verlo"]
-    let messages_fail = ["HORRIBLE", "Please quit", "Trash", "You can do it better", "Really?", "Not even close!"]
+    
+    let messages_fail = [
+      "Vaya basura",
+      "Das pena, en serio",
+      "Ridículo",
+      "¡Mejor déjalo, no pierdas más el tiempo!",
+      "Qué vergüenza",
+      "Dedícate a otra cosa",
+      "¿Estás intentando?",
+      "¡Horrible, eres un completo inútil!"
+    ]
+
 
     if(isWin){
         alertImg.src = "./assets/splash.png"
